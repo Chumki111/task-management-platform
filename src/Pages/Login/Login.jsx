@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import TypeWriter from "../../Components/TypeWriter";
-import Avatar from "./Avatar";
+
 import SocialAccount from "../../Shared/SocialAccount";
 import AnotherAccount from "../../Components/AnotherAccount";
 import { Helmet } from "react-helmet-async";
+import Avatar from "../../Components/Avatar";
 
 
 const Login = () => {
@@ -34,7 +35,7 @@ const Login = () => {
                        
                     </div>
                     <div className="form-control mt-6">
-                        <button className="btn btn-outline">Login</button>
+                        <button className="btn btn-outline">Continue</button>
                        
                     </div>
                    <AnotherAccount/>
