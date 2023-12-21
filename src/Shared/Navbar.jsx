@@ -9,8 +9,8 @@ const Navbar = () => {
       .then(() => { })
       .catch(error => console.log(error))
   }
-    const navLinks = <>
-    
+  const navLinks = <>
+
     {/*  */}
     <NavLink
       to="/"
@@ -18,11 +18,12 @@ const Navbar = () => {
     >
       Home
     </NavLink>
-   
-    </>
-    return (
-        <div>
-             <div className="navbar rounded-md text-black">
+
+
+  </>
+  return (
+    <div>
+      <div className="navbar rounded-md text-black">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="navbar-end lg:hidden">
@@ -39,44 +40,46 @@ const Navbar = () => {
           <ul className="menu menu-horizontal font-medium text-base px-3">
             {navLinks}
 
-            
-            {
-            user ? <>
 
-              <button onClick={handleLogOut} className="cursor-pointer ">LogOut</button>
+            {
+              user ? <>
+                <Link to='/dashboard'>
+                  <button className="cursor-pointer nav">Dashboard</button>
+                </Link>
+                <button onClick={handleLogOut} className="cursor-pointer nav">LogOut</button>
+                <div className="avatar mx-5">
+                  <div className="w-10 rounded-full cursor-pointer">
+                    <img src={user?.photoURL} />
+                  </div>
+                </div>
+              </> : <>
+
+
+                <Link to='/login'>
+                  <button className="cursor-pointer">Login</button>
+                </Link>
+              </>
+            }
+
+            {!user && (
+
+
               <div className="avatar mx-5">
                 <div className="w-10 rounded-full cursor-pointer">
-                  <img src={user?.photoURL} />
+                  <img src='https://i.ibb.co/rpdcRzH/businessman-working-laptop-computer-office-3d-character-isolated-white-background-40876-3756.jpg' />
                 </div>
               </div>
-            </> : <>
 
-
-              <Link to='/login'>
-                <button className="cursor-pointer">Login</button>
-              </Link>
-            </>
-          }
-
-          {!user && (
-
-
-            <div className="avatar mx-5">
-              <div className="w-10 rounded-full cursor-pointer">
-                <img src='https://i.ibb.co/rpdcRzH/businessman-working-laptop-computer-office-3d-character-isolated-white-background-40876-3756.jpg' />
-              </div>
-            </div>
-
-          )}
+            )}
           </ul>
         </div>
         <div className="">
-         
+
         </div>
       </div>
     </div>
-        
-    );
+
+  );
 };
 
 export default Navbar;
