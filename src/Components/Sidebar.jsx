@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineBars } from 'react-icons/ai'
 import MenuItem from "./MenuItem";
-import { FcSettings } from 'react-icons/fc'
 import UserProfile from "./UserProfile";
+// icons
+import { AiOutlineBars } from 'react-icons/ai'
+import { FcSettings } from 'react-icons/fc'
+import { SiTask } from "react-icons/si";
+import { FaHome } from "react-icons/fa";
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
     // Sidebar Responsive Handler
@@ -47,9 +50,14 @@ const Sidebar = () => {
                         {/* Menu Items */}
                        
                         <MenuItem
-                    icon={FcSettings}
-                    label='Profile'
-                    address='/dashboard/profile'
+                    icon={FaHome}
+                    label='Home Dashboard'
+                    address='/dashboard'
+                />
+                        <MenuItem
+                    icon={SiTask }
+                    label='Create New Task'
+                    address='/dashboard/newTask'
                 />
                   
 

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import PropTypes from 'prop-types';
 
 const MenuItem = ({ label, address, icon: Icon }) => {
     return (
@@ -7,7 +7,7 @@ const MenuItem = ({ label, address, icon: Icon }) => {
         to={address}
         end
         className={({ isActive }) =>
-          `flex items-center px-4 py-2  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+          `flex items-center px-4 py-2 my-4 transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
             isActive ? 'bg-gray-300  text-gray-700' : 'text-gray-600'
           }`
         }
@@ -18,5 +18,11 @@ const MenuItem = ({ label, address, icon: Icon }) => {
       </NavLink>
     );
 };
+MenuItem.propTypes ={
+  label: PropTypes.node.isRequired,
+  address: PropTypes.string.isRequired,
+  icon: PropTypes.elementType.isRequired
+}
+
 
 export default MenuItem;

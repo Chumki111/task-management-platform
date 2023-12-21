@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import DashboardLayout from "../Layout/DashboardLayout";
+import NewTask from "../Pages/Dashboard/NewTask";
 
 const Router = createBrowserRouter([
     {
@@ -26,7 +27,13 @@ const Router = createBrowserRouter([
     },
     {
       path:'/dashboard',
-      element:<DashboardLayout/>
+      element:<DashboardLayout/>,
+      children:[
+        {
+          path:'/dashboard/newTask',
+          element:<NewTask/>
+        }
+      ]
 
     }
   ]);
