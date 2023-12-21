@@ -11,6 +11,18 @@ const Navbar = () => {
     >
       Home
     </NavLink>
+    <NavLink
+      to="/login"
+      className="nav"
+    >
+      Login
+    </NavLink>
+    <NavLink
+      to="/register"
+      className="nav"
+    >
+     Register
+    </NavLink>
     </>
     return (
         <div>
@@ -20,7 +32,7 @@ const Navbar = () => {
             <label tabIndex={0} className="navbar-end lg:hidden">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
             </label>
-            <ul tabIndex={0} className="menu text-3xl menu-md dropdown-content mt-3 z-[1] p-2  w-52">
+            <ul tabIndex={0} className="menu text-xl menu-md dropdown-content mt-3 z-[1] p-2  w-52">
 
               {navLinks}
             </ul>
@@ -28,7 +40,7 @@ const Navbar = () => {
           <a className="font-bold text-2xl px-3 cursor-pointer animate-bounce ">Task <span className="border-2 border-red-600 px-3 py-2">Management</span> </a>
         </div>
         <div className="navbar-end  hidden lg:flex">
-          <ul className="menu menu-horizontal px-3">
+          <ul className="menu menu-horizontal font-medium text-base px-3">
             {navLinks}
 
             
