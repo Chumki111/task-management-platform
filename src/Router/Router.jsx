@@ -5,6 +5,9 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import DashboardLayout from "../Layout/DashboardLayout";
 import NewTask from "../Pages/Dashboard/NewTask";
+import PreviousTask from "../Pages/Dashboard/PreviousTask";
+import DetailsPage from "../Components/DetailsPage";
+import { getTask } from "../api/tasks";
 
 const Router = createBrowserRouter([
     {
@@ -32,6 +35,15 @@ const Router = createBrowserRouter([
         {
           path:'/dashboard/newTask',
           element:<NewTask/>
+        },
+        {
+          path:'/dashboard/previousTask',
+          element:<PreviousTask/>
+        },
+        {
+          path:'/dashboard/task/:id',
+          element:<DetailsPage/>,
+          loader:({params}) => getTask(params.id)
         }
       ]
 

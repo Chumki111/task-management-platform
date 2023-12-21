@@ -7,6 +7,7 @@ import { AiOutlineBars } from 'react-icons/ai'
 import { FcSettings } from 'react-icons/fc'
 import { SiTask } from "react-icons/si";
 import { FaHome } from "react-icons/fa";
+import { GrFormPreviousLink } from "react-icons/gr";
 const Sidebar = () => {
     const [isActive, setActive] = useState(false);
     // Sidebar Responsive Handler
@@ -58,6 +59,12 @@ const Sidebar = () => {
                     icon={SiTask }
                     label='Create New Task'
                     address='/dashboard/newTask'
+                />
+                  
+                        <MenuItem
+                    icon={GrFormPreviousLink }
+                    label='My Previous Task'
+                    address='/dashboard/previousTask'
                 />
                   
 
