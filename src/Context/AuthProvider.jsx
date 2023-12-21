@@ -11,6 +11,7 @@ import {
     signOut,
     updateProfile,
 } from 'firebase/auth'
+import { clearCookie } from "../api/auth";
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app)
@@ -24,13 +25,13 @@ const AuthProvider = ({ children }) => {
     // createUser
     const createUser = (email, password) => {
         setLoading(true)
-        return createUserWithEmailAndPassword(email, password)
+        return createUserWithEmailAndPassword(auth,email, password)
     }
 
     // loginUser
     const signIn = (email, password) => {
         setLoading(true)
-        return signInWithEmailAndPassword(email, password)
+        return signInWithEmailAndPassword(auth,email, password)
     }
 
     // googleWith sign In
@@ -49,7 +50,9 @@ const AuthProvider = ({ children }) => {
     }
 
     //  logout
-    const logOut = () => {
+    const logOut =async () => {
+        setLoading(true)
+        await clearCookie()
         setLoading(true)
 
         return signOut(auth)

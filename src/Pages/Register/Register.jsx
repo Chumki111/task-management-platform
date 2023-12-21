@@ -6,7 +6,8 @@ import SocialAccount from "../../Shared/SocialAccount";
 import AnotherAccount from "../../Components/AnotherAccount";
 import useAuth from "../../Hooks/useAuth";
 import { imageUpload } from "../../api/utils";
-import { saveUser } from "../../api/auth";
+import { getToken, saveUser } from "../../api/auth";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -21,7 +22,6 @@ const Register = () => {
         const password = form.password.value
         const image = form.image.files[0]
         console.log(name,email,password,image);
-
         try {
             //1. Upload Image
             const imageData = await imageUpload(image)
@@ -38,14 +38,28 @@ const Register = () => {
             console.log(dbResponse)
             // result.user.email
       
-           
+            //5. get token
+            await getToken(result?.user?.email)
+            navigate('/')
+            Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Sign Up Successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
           } catch (err) {
             console.log(err)
-            // toast.error(err?.message)
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: `${err.message}`,
+                showConfirmButton: false,
+                timer: 1500
+              });
+            
           }
-        
-      
-    }
+   }
 
     return (
         <>

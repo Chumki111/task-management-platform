@@ -1,7 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
+import useAuth from "../Hooks/useAuth";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => { })
+      .catch(error => console.log(error))
+  }
     const navLinks = <>
     
     {/*  */}
@@ -11,18 +18,7 @@ const Navbar = () => {
     >
       Home
     </NavLink>
-    <NavLink
-      to="/login"
-      className="nav"
-    >
-      Login
-    </NavLink>
-    <NavLink
-      to="/register"
-      className="nav"
-    >
-     Register
-    </NavLink>
+   
     </>
     return (
         <div>
@@ -44,7 +40,7 @@ const Navbar = () => {
             {navLinks}
 
             
-    {/* {
+            {
             user ? <>
 
               <button onClick={handleLogOut} className="cursor-pointer ">LogOut</button>
@@ -71,7 +67,7 @@ const Navbar = () => {
               </div>
             </div>
 
-          )} */}
+          )}
           </ul>
         </div>
         <div className="">
