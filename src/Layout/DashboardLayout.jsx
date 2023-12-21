@@ -1,9 +1,14 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../Components/Sidebar";
+import { Helmet } from "react-helmet-async";
 
 
 const DashboardLayout = () => {
     return (
+      <> <Helmet>
+      <title>Dashboard</title>
+
+    </Helmet>
         <div className='relative min-h-screen md:flex'>
         {/* Sidebar Component */}
         <Sidebar />
@@ -14,6 +19,7 @@ const DashboardLayout = () => {
           </div>
         </div>
       </div>
+      </>
     );
 };
 

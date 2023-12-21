@@ -3,6 +3,7 @@ import useAuth from "../../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { addTask } from "../../api/tasks";
+import { Helmet } from "react-helmet-async";
 
 
 const NewTask = () => {
@@ -51,6 +52,10 @@ const NewTask = () => {
 
     return (
         <div>
+             <Helmet>
+				<title>Dashboard | Create Task</title>
+
+			</Helmet>
             <div className="px-12 py-3 bg-base-200 mx-14 mb-5 rounded-lg">
                 <form onSubmit={handleSubmit(onSubmit)}>
 

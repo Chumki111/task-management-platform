@@ -1,4 +1,5 @@
 
+import { Helmet } from "react-helmet-async";
 import TaskRow from "../../Components/TaskRow";
 import useAuth from "../../Hooks/useAuth";
 import axiosSecure from "../../api";
@@ -17,11 +18,14 @@ const PreviousTask = () => {
 
         }
     })
-    console.log(users);
-   
-    return (
+    
+   return (
         <div>
-            <h2 className="text-lg font-bold">My Tasks <span className="text-base-300">( {users.length} )</span></h2>
+             <Helmet>
+				<title>Dashboard | Previous Task</title>
+
+			</Helmet>
+            <h2 className="text-lg font-bold ml-6">My Tasks <span className="text-base-300">( {users.length} )</span></h2>
 
             <div className='container mx-auto px-4 sm:px-8'>
         <div className='py-8'>
