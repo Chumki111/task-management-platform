@@ -1,12 +1,52 @@
 import { Helmet } from "react-helmet-async";
 import Avatar from "../../Components/Avatar";
 import TypeWriter from "../../Components/TypeWriter";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialAccount from "../../Shared/SocialAccount";
 import AnotherAccount from "../../Components/AnotherAccount";
+import useAuth from "../../Hooks/useAuth";
+import { imageUpload } from "../../api/utils";
+import { saveUser } from "../../api/auth";
 
 
 const Register = () => {
+    const { createUser, updateUserProfile, signInWithGoogle, loading } = useAuth()
+    const navigate = useNavigate()
+    // form submit handler
+    const handleSubmit = async event => {
+        event.preventDefault()
+        const form = event.target
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        const image = form.image.files[0]
+        console.log(name,email,password,image);
+
+        try {
+            //1. Upload Image
+            const imageData = await imageUpload(image)
+      
+            //2. User Registration
+            const result = await createUser(email, password)
+      
+            //3. Save username & profile photo
+            await updateUserProfile(name, imageData?.data?.display_url)
+            console.log(result)
+      
+            //4. save user data in database
+            const dbResponse = await saveUser(result?.user)
+            console.log(dbResponse)
+            // result.user.email
+      
+           
+          } catch (err) {
+            console.log(err)
+            // toast.error(err?.message)
+          }
+        
+      
+    }
+
     return (
         <>
             <Helmet>
@@ -19,18 +59,24 @@ const Register = () => {
                     <Avatar />
                     <TypeWriter />
                     <h1 className="flex justify-center items-center font-bold text-xl mt-3">Please Sign Up</h1>
-                    <form className="card-body">
+                    <form className="card-body" onSubmit={handleSubmit}>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text font-bold">Your Name</span>
+                            </label>
+                            <input type="text" name="name" placeholder="Inter Your email" className="input input-bordered" required />
+                        </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Email</span>
                             </label>
-                            <input type="email" placeholder="email" className="input input-bordered" required />
+                            <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text font-bold">Password</span>
                             </label>
-                            <input type="password" placeholder="password" className="input input-bordered" required />
+                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
 
                         </div>
                         <div className="form-control">
@@ -39,7 +85,7 @@ const Register = () => {
                                     <span className="label-text font-bold">Pick your photo</span>
                                    
                                 </div>
-                                <input type="file" className="file-input file-input-bordered w-full" />
+                                <input type="file" name="image" className="file-input file-input-bordered w-full" />
                                
                             </label>
 
