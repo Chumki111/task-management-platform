@@ -3,10 +3,17 @@ import TypeWriter from "../../Components/TypeWriter";
 import Avatar from "./Avatar";
 import SocialAccount from "../../Shared/SocialAccount";
 import AnotherAccount from "../../Components/AnotherAccount";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
     return (
+        <>
+        <Helmet>
+				<title>Task Management | SignIn</title>
+
+			</Helmet>
+       
         <div className="hero min-h-screen">
             <div className="card shrink-0 w-full max-w-2xl shadow-2xl bg-base-200">
             <Avatar/>
@@ -40,6 +47,7 @@ const Login = () => {
                 </form>
             </div>
         </div>
+        </>
     );
 };
 
