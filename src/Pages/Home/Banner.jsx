@@ -13,7 +13,7 @@ const Banner = () => {
     return (
         <div className="hero min-h-screen border-b-4 shadow-md border-base-200 rounded-lg">
   <div className="hero-content flex-col lg:flex-row-reverse">
-    <img src={bannerImage} className="max-w-md rounded-lg" />
+    <img src={bannerImage} className="max-w-sm md:max-w-md rounded-lg" />
     <div>
       <h1 className="text-5xl font-bold">{text}</h1>
       <h2 className="text-3xl py-3 font-bold">Management your task with Taskia</h2>
