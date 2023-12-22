@@ -18,6 +18,13 @@ const Navbar = () => {
     >
       Home
     </NavLink>
+    <NavLink
+      to="/register"
+      className="nav"
+    >
+      SignUp
+    </NavLink>
+    
 
 
   </>

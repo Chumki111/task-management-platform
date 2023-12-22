@@ -8,8 +8,8 @@ import { useQuery } from "@tanstack/react-query";
 
 const PreviousTask = () => {
     const { user } = useAuth()
-    const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
+    const { data: tasks = [], refetch } = useQuery({
+        queryKey: ['tasks'],
         queryFn: async () => {
 
             const res = await axiosSecure.get(`/tasks/${user?.email}`)
@@ -25,7 +25,7 @@ const PreviousTask = () => {
 				<title>Dashboard | Previous Task</title>
 
 			</Helmet>
-            <h2 className="text-lg font-bold ml-6">My Tasks <span className="text-base-300">( {users.length} )</span></h2>
+            <h2 className="text-lg font-bold ml-6">My Tasks <span className="text-base-300">( {tasks.length} )</span></h2>
 
             <div className='container mx-auto px-4 sm:px-8'>
         <div className='py-8'>
@@ -82,7 +82,7 @@ const PreviousTask = () => {
                 <tbody>
                  {/* tasks colum */}
                  {
-                    users?.map((task,index) =>  <TaskRow key={task._id} index={index} task={task} refetch={refetch}/>)
+                   tasks?.map((task,index) =>  <TaskRow key={task._id} index={index} task={task} refetch={refetch}/>)
                  }
                 </tbody>
               </table>

@@ -1,7 +1,5 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import TypeWriter from "../../Components/TypeWriter";
-
-
 import AnotherAccount from "../../Components/AnotherAccount";
 import { Helmet } from "react-helmet-async";
 import Avatar from "../../Components/Avatar";
@@ -14,10 +12,8 @@ import { FaGoogle } from "react-icons/fa";
 const Login = () => {
     const { signIn,signInWithGoogle} = useAuth()
     const navigate = useNavigate()
-    const location = useLocation()
-    const from = location?.state?.from?.pathname || '/'
-
-     // form submit handler
+   
+    // form submit handler
   const handleSubmit = async event => {
     event.preventDefault()
     const form = event.target
@@ -30,7 +26,7 @@ const Login = () => {
       //5. get token
       await getToken(result?.user?.email)
 
-      navigate(from, { replace: true })
+      navigate('/dashboard')
       Swal.fire({
         position: "center",
         icon: "success",
@@ -51,16 +47,7 @@ const Login = () => {
   }
 
 
-// const handleGoogle =()=>{
-//     signInWithGoogle()
-//     .then(result =>{
-//         console.log(result.user);
-//         navigate(location?.state ? location.state : '/')
-//     })
-//     .catch(error =>{
-//         console.log(error);
-//     })
-//    }
+
 const handleGoogleSignIn = async () => {
     try {
       // User signs in using Google
@@ -74,7 +61,7 @@ const handleGoogleSignIn = async () => {
       await getToken(result?.user?.email)
   
       // Redirect the user to the home page
-      navigate('/')
+      navigate('/dashboard')
   
       // Show a success message using a toast notification
       

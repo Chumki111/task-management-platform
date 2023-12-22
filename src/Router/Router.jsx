@@ -8,6 +8,8 @@ import NewTask from "../Pages/Dashboard/NewTask";
 import PreviousTask from "../Pages/Dashboard/PreviousTask";
 import DetailsPage from "../Components/DetailsPage";
 import { getTask } from "../api/tasks";
+import PrivateRoute from "./PrivetRoute";
+import HomeDashboard from "../Pages/Dashboard/HomeDashboard";
 
 const Router = createBrowserRouter([
     {
@@ -30,8 +32,12 @@ const Router = createBrowserRouter([
     },
     {
       path:'/dashboard',
-      element:<DashboardLayout/>,
+      element:<PrivateRoute><DashboardLayout/></PrivateRoute>,
       children:[
+        {
+path:'/dashboard',
+element:<HomeDashboard/>
+        },
         {
           path:'/dashboard/newTask',
           element:<NewTask/>
