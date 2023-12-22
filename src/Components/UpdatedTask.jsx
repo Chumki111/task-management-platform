@@ -24,9 +24,7 @@ const UpdatedTask = () => {
             };
 
              const updatedTask = await axiosSecure.patch(`/tasks/${_id}`, taskItem);
-           
-
-            // On successful addition of task
+           // On successful addition of task
             if(updatedTask.data.modifiedCount > 0){
                 reset();
                 Swal.fire({
@@ -37,10 +35,7 @@ const UpdatedTask = () => {
                     timer: 1500
                 });
             }
-            
-            
-
-            navigate('/dashboard');
+            navigate('/dashboard/previousTask');
         } catch (error) {
             // Error handling
             console.error(error);
