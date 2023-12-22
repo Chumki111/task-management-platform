@@ -34,7 +34,7 @@ const Navbar = () => {
               {navLinks}
             </ul>
           </div>
-          <a className="font-bold text-2xl px-3 cursor-pointer animate-bounce ">Task <span className="border-2 border-red-600 px-3 py-2">Management</span> </a>
+          <a className="font-bold text-2xl px-3 cursor-pointer animate-bounce border-2 border-red-600 py-2">Taskia </a>
         </div>
         <div className="navbar-end  hidden lg:flex">
           <ul className="menu menu-horizontal font-medium text-base px-3">
