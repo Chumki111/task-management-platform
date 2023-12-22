@@ -13,4 +13,4 @@
 
 - Task Management server Side : [https://github.com/Chumki111/task-management-platform-server](https://github.com/Chumki111/task-management-platform-server) 
 
-- Live Link : [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) 
+- Live Link : [https://jobs-task-management.web.app](https://jobs-task-management.web.app) 

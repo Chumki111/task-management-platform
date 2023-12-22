@@ -22,74 +22,31 @@ const PreviousTask = () => {
    return (
         <div>
              <Helmet>
-				<title>Dashboard | Previous Task</title>
+				<title>Dashboard</title>
 
 			</Helmet>
-            <h2 className="text-lg font-bold ml-6">My Tasks <span className="text-base-300">( {tasks.length} )</span></h2>
-
-            <div className='container mx-auto px-4 sm:px-8'>
-        <div className='py-8'>
-          <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
-            <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
-              <table className='min-w-full leading-normal'>
-                <thead>
-                  <tr>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      Title
-                    </th>
-                    
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      Priority
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      Deadline
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                    View Details
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      Delete
-                    </th>
-                    <th
-                      scope='col'
-                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
-                    >
-                      Update
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                 {/* tasks colum */}
-                 {
+<div className="grid grid-cols-3 gap-4">
+      <div className="col-span-1 h-screen bg-white shadow-md">
+        <h1 className="text-center font-bold text-2xl my-3"> TO Do ({tasks.length})</h1>
+        {
                    tasks?.map((task,index) =>  <TaskRow key={task._id} index={index} task={task} refetch={refetch}/>)
                  }
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+        
       </div>
+      <div className="col-span-1 h-screen bg-white shadow-md">
+        <h1 className="text-center font-bold text-2xl my-3"> ONGOING</h1>
+        
+      </div>
+      <div className="col-span-1 h-screen bg-white shadow-md">
+        <h1 className="text-center font-bold text-2xl my-3"> COMPLETE</h1>
+        
+      </div>
+     
+
+
+
+    </div>
+      
         </div>
     );
 };

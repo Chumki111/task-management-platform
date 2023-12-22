@@ -17,7 +17,7 @@ const UpdatedTask = () => {
                 email: user?.email,
                 name: user?.displayName,
                 photo: user?.photoURL,
-                title: data.name,
+                title: data.title,
                 priority: data.priority,
                 deadline: data.deadline,
                 description: data.recipe // Assuming this field corresponds to the task description
@@ -35,7 +35,7 @@ const UpdatedTask = () => {
                     timer: 1500
                 });
             }
-            navigate('/dashboard/previousTask');
+            navigate('/dashboard');
         } catch (error) {
             // Error handling
             console.error(error);

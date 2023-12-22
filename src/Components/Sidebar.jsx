@@ -49,23 +49,19 @@ const Sidebar = () => {
                 <div className='flex flex-col justify-between flex-1'>
                 <nav>
                         {/* Menu Items */}
-                       
                         <MenuItem
-                    icon={FaHome}
-                    label='Home Dashboard'
+                    icon={FaHome }
+                    label='Task Management'
                     address='/dashboard'
                 />
+                    
                         <MenuItem
                     icon={SiTask }
                     label='Create New Task'
                     address='/dashboard/newTask'
                 />
                   
-                        <MenuItem
-                    icon={GrFormPreviousLink }
-                    label='My Previous Task'
-                    address='/dashboard/previousTask'
-                />
+                       
                   
 
                     </nav>

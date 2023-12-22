@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import axiosSecure from "../../api";
 import useAuth from "../../Hooks/useAuth";
 import { DragDropContext } from "react-beautiful-dnd";
+import TaskRow from "../../Components/TaskRow";
 
 
 const HomeDashboard = () => {
@@ -30,12 +31,9 @@ const HomeDashboard = () => {
      <div className="grid grid-cols-3 gap-4">
       <div className="col-span-1 h-screen bg-white shadow-md">
         <h1 className="text-center font-bold text-2xl my-3"> TO Do ({tasks.length})</h1>
-        {
-          tasks?.map( task => <div  key={task._id} className="shadow-md my-2 mt-5 px-3 mx-4">
-            <h3 className="text-xl font-semibold">{task.title}</h3>
-            <p>{task.description}</p>
-          </div>)
-        }
+        {/* {
+          tasks?.map( task => <TaskRow key={task._id} task={task}/>)
+        } */}
         
       </div>
       <div className="col-span-1 h-screen bg-white shadow-md">

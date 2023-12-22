@@ -9,7 +9,7 @@ import PreviousTask from "../Pages/Dashboard/PreviousTask";
 import DetailsPage from "../Components/DetailsPage";
 import { getTask } from "../api/tasks";
 import PrivateRoute from "./PrivetRoute";
-import HomeDashboard from "../Pages/Dashboard/HomeDashboard";
+
 import UpdatedTask from "../Components/UpdatedTask";
 
 const Router = createBrowserRouter([
@@ -35,16 +35,13 @@ const Router = createBrowserRouter([
       path:'/dashboard',
       element:<PrivateRoute><DashboardLayout/></PrivateRoute>,
       children:[
-        {
-path:'/dashboard',
-element:<HomeDashboard/>
-        },
+        
         {
           path:'/dashboard/newTask',
           element:<NewTask/>
         },
         {
-          path:'/dashboard/previousTask',
+          path:'/dashboard',
           element:<PreviousTask/>
         },
         {
