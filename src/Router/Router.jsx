@@ -10,6 +10,7 @@ import DetailsPage from "../Components/DetailsPage";
 import { getTask } from "../api/tasks";
 import PrivateRoute from "./PrivetRoute";
 import HomeDashboard from "../Pages/Dashboard/HomeDashboard";
+import UpdatedTask from "../Components/UpdatedTask";
 
 const Router = createBrowserRouter([
     {
@@ -49,6 +50,11 @@ element:<HomeDashboard/>
         {
           path:'/dashboard/task/:id',
           element:<DetailsPage/>,
+          loader:({params}) => getTask(params.id)
+        },
+        {
+          path:'/dashboard/updated/:id',
+          element:<UpdatedTask/>,
           loader:({params}) => getTask(params.id)
         }
       ]

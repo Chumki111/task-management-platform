@@ -71,7 +71,9 @@ const TaskRow = ({ task ,index,refetch}) => {
                         aria-hidden='true'
                         className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
                     ></span>
+                    <Link to={`/dashboard/updated/${task._id}`}>
                     <span className='relative'>Update</span>
+                    </Link>
                 </span>
             </td>
         </tr>
