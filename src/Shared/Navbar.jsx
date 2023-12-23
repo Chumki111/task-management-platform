@@ -24,6 +24,12 @@ const Navbar = () => {
     >
       SignUp
     </NavLink>
+    <NavLink
+      to="/dashboard"
+      className="nav"
+    >
+      Dashboard
+    </NavLink>
     
 
 

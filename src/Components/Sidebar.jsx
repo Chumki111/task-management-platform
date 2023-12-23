@@ -4,7 +4,7 @@ import MenuItem from "./MenuItem";
 import UserProfile from "./UserProfile";
 // icons
 import { AiOutlineBars } from 'react-icons/ai'
-import { FcSettings } from 'react-icons/fc'
+import { FcHome, FcSettings } from 'react-icons/fc'
 import { SiTask } from "react-icons/si";
 import { FaHome } from "react-icons/fa";
 import { GrFormPreviousLink } from "react-icons/gr";
@@ -61,6 +61,12 @@ const Sidebar = () => {
                     address='/dashboard/newTask'
                 />
                   
+                        <MenuItem
+                    icon={GrFormPreviousLink  }
+                    label='My Task'
+                    address='/dashboard/myTask'
+                />
+                  
                        
                   
 
@@ -72,9 +78,9 @@ const Sidebar = () => {
                 <hr />
 
                 <MenuItem
-                    icon={FcSettings}
-                    label='Profile'
-                    address='/dashboard/profile'
+                    icon={FcHome}
+                    label='Go Home'
+                    address='/'
                 />
 
             </div>

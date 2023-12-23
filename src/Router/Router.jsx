@@ -11,6 +11,7 @@ import { getTask } from "../api/tasks";
 import PrivateRoute from "./PrivetRoute";
 
 import UpdatedTask from "../Components/UpdatedTask";
+import MyTasks from "../Pages/Dashboard/MyTasks";
 
 const Router = createBrowserRouter([
     {
@@ -53,6 +54,10 @@ const Router = createBrowserRouter([
           path:'/dashboard/updated/:id',
           element:<UpdatedTask/>,
           loader:({params}) => getTask(params.id)
+        },
+        {
+          path:'/dashboard/myTask',
+          element:<MyTasks/>
         }
       ]
 
